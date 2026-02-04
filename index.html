@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EREMONDO | Chronicles of the Deep Realm</title>
+    <meta name="description" content="Eremondo - Tauche ein in die Deep Realms. Melde dich jetzt für die exklusive Alpha-Testphase des neuen Indie-Fantasy-RPGs an.">
+<meta name="keywords" content="Eremondo, Indie Game, Alpha Test, RPG, Deep Realms, Gaming">
+<meta name="author" content="EREMONDO Team">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+    .nav-logo {
+            display: flex;
+            align-items: center;
+            color: var(--gold);
+            font-family: 'Cinzel', serif; /* Falls du eine Fantasy-Schriftart nutzt */
+            font-weight: bold;
+            letter-spacing: 3px;
+            font-size: 1.3rem;
+        }
+
+        .nav-logo svg {
+            filter: drop-shadow(0 0 8px rgba(197, 160, 89, 0.6));
+            transition: transform 0.3s ease;
+        }
+
+        .nav-logo:hover svg {
+            transform: rotate(-10deg) scale(1.1); /* Kleiner Effekt beim Drüberfahren */
+        }
+        .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+.gallery-grid img {
+    width: 100%;
+    border: 1px solid var(--gold);
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+.gallery-grid img:hover {
+    transform: scale(1.05);
+}/* Beispiel für den Effekt */
+
+/* Ein radialer Verlauf, der sich mit JS bewegen lässt */
+        /* Scrollbar Design für Chrome, Edge und Safari */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        /* Der Hintergrund der Scrollbar (Track) */
+        ::-webkit-scrollbar-track {
+            background: #0d0f12; 
+        }
+
+        /* Der bewegliche Balken (Thumb) */
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, #8a6d3b, var(--gold), #8a6d3b);
+            border-radius: 5px;
+            border: 2px solid #0d0f12; /* Erzeugt einen kleinen Abstand zum Rand */
+        }
+
+        /* Wenn man mit der Maus auf den Balken geht */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #e0b86a;
+            box-shadow: 0 0 10px var(--gold);
+        }
+
+        /* Scrollbar Design für Firefox */
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: var(--gold) #0d0f12;
+        }
+        :root {
+            --gold: #c5a059;
+            --deep-bg: #0d0f12;
+            --card-bg: #1a1d22;
+            --text-light: #f4f4f4;
+            --text-dim: #a0a0a0;
+        }
+        
+        body {
+            font-family: 'Cinzel', serif;
+            background-color: var(--deep-bg);
+            color: var(--text-light);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+       html {
+    scroll-behavior: smooth;
+} 
+
+
+        .logo-img {
+            width: 100%;
+            max-width: 650px; 
+            height: auto;
+            margin-bottom: 20px;
+            transition: all 0.5s ease;
+            /* Ein ganz dezentes Grundleuchten */
+            filter: drop-shadow(0 0 10px rgba(197, 160, 89, 0.2));
+        }
+
+        .logo-img:hover {
+            /* Nur die Form des Logos leuchtet gold auf */
+            filter: drop-shadow(0 0 15px rgba(197, 160, 89, 0.8)) 
+                    drop-shadow(0 0 30px rgba(197, 160, 89, 0.4));
+            
+            /* Das Logo hebt sich ganz leicht an */
+            transform: translateY(-5px) scale(1.02);
+        }
+
+        .container { max-width: 900px; margin: auto; padding: 40px 20px; }
+
+        h1, h2 {
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            /* Ein feiner Schimmer hinter der Schrift */
+            text-shadow: 0 0 10px rgba(197, 160, 89, 0.3), 0 0 20px rgba(197, 160, 89, 0.1);
+            margin-bottom: 20px;
+        }
+
+        /* Ein kleiner Effekt für die h2 Überschriften in den Sektionen */
+        h2 {
+            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .update-entry {
+            background: rgba(255,255,255,0.03);
+            border-left: 3px solid var(--gold);
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .date { color: var(--gold); font-weight: bold; font-size: 0.8rem; letter-spacing: 2px; }
+
+        form {
+            background: var(--card-bg);
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            border: 1px solid #2d323a;
+            margin-top: 20px;
+        }
+
+        input, textarea {
+            background: #080a0c;
+            border: 1px solid #333;
+            color: white;
+            padding: 15px;
+            font-family: sans-serif;
+        }
+
+        button {
+            background: var(--gold);
+            color: #0d0f12;
+            font-weight: bold;
+            padding: 15px 30px;
+            border: none;
+            cursor: pointer;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.4s ease; /* Sanfter Übergang */
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 0 rgba(197, 160, 89, 0);
+        }
+
+        button:hover {
+            background: #e0b86a;
+            transform: translateY(-3px); /* Button hebt sich leicht ab */
+            /* Der Glow-Effekt: */
+            box-shadow: 0 0 20px rgba(197, 160, 89, 0.6), 0 0 40px rgba(197, 160, 89, 0.2);
+            text-shadow: 0 0 5px rgba(0,0,0,0.2);
+        }
+
+        button:active {
+            transform: translateY(-1px); /* Drück-Effekt beim Klicken */
+        }
+
+        footer {
+            text-align: center;
+            padding: 80px 20px;
+            font-size: 0.7rem;
+            opacity: 0.4;
+            letter-spacing: 3px;
+        }
+        /* Vorbereitung für das Einblenden */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--gold), transparent);
+            margin: 40px 0;
+            opacity: 0.5;
+        }
+        .discord-btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background: transparent;
+    color: var(--gold);
+    border: 2px solid var(--gold);
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 2px;
+    transition: all 0.4s ease;
+    margin-top: 20px;
+}
+
+.discord-btn:hover {
+    background: var(--gold);
+    color: var(--deep-bg);
+    box-shadow: 0 0 20px var(--gold);
+    transform: translateY(-3px);
+}
+/* Die Navbar etwas breiter für mehr Links */
+ /* Die normale Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background: rgba(13, 15, 18, 0.95); /* Dunkler Grundzustand */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+    z-index: 10000;
+    backdrop-filter: blur(10px);
+    transition: background 0.3s, border-bottom 0.3s;
+}
+
+/* Spezifische Korrektur für die Navbar im Light Mode */
+body.light-mode .navbar {
+    background: rgba(255, 255, 255, 0.9); /* Heller, aber glasiger Hintergrund */
+    border-bottom: 1px solid rgba(138, 109, 59, 0.5); /* Dunkleres Gold */
+}
+
+/* Damit die Links in der Navbar im Light Mode dunkel werden */
+body.light-mode .nav-links a {
+    color: #1a1d22 !important; /* Fast Schwarz für maximalen Kontrast */
+}
+
+/* Der Alpha-Button muss im Light Mode auch lesbar bleiben */
+body.light-mode .nav-special {
+    border-color: #8a6d3b !important;
+    color: #8a6d3b !important;
+}
+
+body.light-mode .nav-special:hover {
+    background: #8a6d3b !important;
+    color: #ffffff !important;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-light);
+    margin-left: 20px;
+    font-weight: bold;
+    transition: color 0.3s;
+}     
+        /* Ein kleiner Effekt für den Alpha-Link */
+        .nav-special {
+            color: var(--gold) !important;
+            border: 1px solid var(--gold);
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+
+        .nav-special:hover {
+            background: var(--gold);
+            color: var(--deep-bg) !important;
+        }
+
+        /* Unterstreich-Effekt beim Hovern für normale Links */
+        .nav-links a:not(.nav-special)::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--gold);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Damit der Header-Inhalt nicht unter der Navbar verschwindet */
+        header {
+    min-height: 85vh;
+    background: linear-gradient(to bottom, rgba(13,15,18,0.7) 0%, var(--deep-bg) 95%), 
+                url('hero_landscape.png') center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 100px; /* Genug Platz, damit das Logo nicht hinter der Navbar klebt */
+    margin-top: 0;
+}
+        /* Versteckt die Checkbox */
+        .nav-toggle {
+            display: none;
+        }
+
+        /* Styling für das Hamburger-Icon */
+        .nav-toggle-label {
+            display: none; /* Standardmäßig am PC versteckt */
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .nav-toggle-label span,
+        .nav-toggle-label span::before,
+        .nav-toggle-label span::after {
+            display: block;
+            background: var(--gold);
+            height: 2px;
+            width: 25px;
+            border-radius: 2px;
+            position: relative;
+        }
+
+        .nav-toggle-label span::before,
+        .nav-toggle-label span::after {
+            content: '';
+            position: absolute;
+        }
+
+        .nav-toggle-label span::before { bottom: 7px; }
+        .nav-toggle-label span::after { top: 7px; }
+
+        /* HANDY-ANPASSUNG (Responsive) */
+        @media screen and (max-width: 768px) {
+            .nav-toggle-label {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(13, 15, 18, 0.98);
+                display: none; /* Erstmal versteckt */
+                flex-direction: column;
+                align-items: center;
+                border-bottom: 1px solid var(--gold);
+            }
+
+            .nav-links a {
+                padding: 20px;
+                width: 100%;
+                text-align: center;
+                margin: 0;
+            }
+
+            /* Wenn Checkbox geklickt, zeige Menü */
+            .nav-toggle:checked ~ .nav-links {
+                display: flex;
+            }
+        }
+        .roadmap-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        .roadmap-item {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            padding: 20px;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .roadmap-item:hover {
+            transform: scale(1.02);
+            border-color: var(--gold);
+        }
+
+        .roadmap-item.current {
+            border: 1px solid var(--gold);
+            box-shadow: inset 0 0 15px rgba(197, 160, 89, 0.1);
+        }
+
+        .roadmap-icon {
+            font-size: 2rem;
+            margin-right: 20px;
+            filter: drop-shadow(0 0 5px var(--gold));
+        }
+
+        .roadmap-content h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: var(--gold);
+        }
+
+        .roadmap-content p {
+            margin: 5px 0 0;
+            font-size: 0.9rem;
+            color: var(--text-dim);
+        }
+        body {
+    padding-top: 80px; /* Schiebt den Rest der Seite unter der Navbar hervor */
+}
+section {
+    scroll-margin-top: 90px; /* Die Höhe deiner Navbar (70px) + ein kleiner Puffer (20px) */
+}
+#backToTop {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: var(--deep-bg);
+    border: 2px solid var(--gold);
+    color: var(--gold);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    z-index: 10001; /* Über der Navbar */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+    box-shadow: 0 0 15px rgba(197, 160, 89, 0.2);
+}
+
+#backToTop.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+#backToTop:hover {
+    background: var(--gold);
+    color: var(--deep-bg);
+    box-shadow: 0 0 20px var(--gold);
+    transform: translateY(-5px);
+}
+/* Standard für den Light Mode */
+body.light-mode {
+    --deep-bg: #e0e0e0;
+    --card-bg: #ffffff;
+    --text-light: #1a1d22;
+    --text-dim: #444444;
+    --gold: #8a6d3b; /* Ein etwas dunkleres Gold für bessere Lesbarkeit auf weiß */
+}
+
+body.light-mode header {
+    background: linear-gradient(to bottom, rgba(255,255,255,0.2) 0%, var(--deep-bg) 95%), 
+                url('hero_landscape.png') center/cover no-repeat;
+    filter: sepia(20%); /* Gibt dem Bild einen "alten Pergament" Look */
+}
+
+body.light-mode .update-entry, 
+body.light-mode .roadmap-item {
+    background: rgba(0,0,0,0.05);
+    border-color: var(--gold);
+}
+
+/* Der Toggle-Button Style */
+/* Grundstil für die Toggle-Buttons (Musik & Light) */
+.theme-btn {
+    background: none;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: 5px;
+    margin-left: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-btn:hover {
+    box-shadow: 0 0 15px var(--gold);
+    transform: translateY(-2px);
+}
+
+/* Anpassung der Buttons im Light Mode */
+body.light-mode .theme-btn {
+    border-color: #1a1d22;
+    color: #1a1d22;
+}
+
+body.light-mode .theme-btn:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.05);
+}
+
+/* Ein kleiner Glow-Effekt, wenn Musik AN ist */
+.music-active {
+    box-shadow: 0 0 10px var(--gold);
+    text-shadow: 0 0 5px var(--gold);
+}
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar">
+   <div class="nav-logo">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle; margin-right: 10px;">
+        <path d="M17 4L12 2L7 4V15L12 17L17 15V4Z" stroke="#c5a059" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M12 2V17" stroke="#c5a059" stroke-width="1"/>
+        
+        <path d="M6 15H18" stroke="#c5a059" stroke-width="2" stroke-linecap="round"/>
+        
+        <path d="M12 15V21" stroke="#c5a059" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="12" cy="21" r="1.5" fill="#c5a059">
+            <animate attributeName="r" values="1.2;1.8;1.2" dur="2s" repeatCount="indefinite" />
+        </circle>
+    </svg>
+    EREMONDO
+</div>
+    
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <label for="nav-toggle" class="nav-toggle-label">
+        <span></span>
+    </label>
+
+    <div class="nav-links">
+        <a href="#story">STORY</a>
+        <a href="#roadmap">ROADMAP</a>
+        <a href="#alpha-timer">STATUS</a> <a href="#faq">FAQ</a> <button id="theme-toggle" class="theme-btn" title="Licht herbeirufen">☀️</button>
+        <button id="music-toggle" class="theme-btn" title="Musik aktivieren">🔇</button>
+
+        <audio id="bg-music-dark" loop src="dark_ambient.mp3"></audio>
+        <audio id="bg-music-light" loop src="light_ambient.mp3"></audio>
+        <audio id="fire-sfx" src="fire_click.mp3"></audio>
+        <a href="#contact" class="nav-special">ALPHA LOGIN</a>
+    </div>
+</nav>
+<header>
+    <img src="logo.png" alt="EREMONDO Logo" class="logo-img">
+</header>
+
+<div class="container">
+
+    <section id="story" class="fade-in">
+    <h2>DIE LEGENDE DER DEEP REALMS</h2>
+    <div style="text-align: left; background: rgba(255,255,255,0.02); padding: 30px; border-left: 3px solid var(--gold);">
+        <p>In den Schatten der alten Welt, dort wo das Licht der Sonne niemals den Boden berührt, liegen die <strong>Deep Realms</strong>. Einst ein blühendes Königreich, sind sie heute nur noch ein Echo vergangener Zeiten.</p>
+        
+        <p>Du erwachst in den Ruinen eines vergessenen Außenpostens. Ohne Erinnerung, aber mit einer Bestimmung: Die Fragmente der Ewigkeit zu finden, bevor die Dunkelheit sie für immer verschlingt.</p>
+        
+        <p style="color: var(--gold); font-style: italic;">„Manche Geheimnisse sollten besser verborgen bleiben... doch der Hunger nach Wahrheit ist stärker als die Angst vor der Nacht.“</p>
+    </div>
+    <hr>
+</section>
+    
+<section id="lore-box" class="fade-in" style="text-align: center; margin: 60px 0;">
+    <div id="lore-display" style="font-style: italic; color: var(--gold); font-size: 1.1rem; min-height: 50px;">
+        "Lade Legenden..."
+    </div>
+</section>
+
+<section id="alpha-timer" class="fade-in" style="text-align: center; background: rgba(197, 160, 89, 0.05); padding: 20px; border: 1px dashed var(--gold);">
+    <h3>NÄCHSTER MEILENSTEIN</h3>
+    <div id="countdown" style="font-family: monospace; font-size: 1.5rem; letter-spacing: 5px;">NO DATE YET</div>
+</section>
+
+<section id="faq" class="fade-in">
+    <hr>
+    <h2>HÄUFIGE FRAGEN</h2>
+    <details style="margin-bottom: 10px; cursor: pointer;">
+        <summary style="color: var(--gold); font-weight: bold;">Was sind die Systemanforderungen?</summary>
+        <p>Da wir Raytracing nutzen, wird eine moderne Grafikkarte empfohlen. Eine Version für schwächere PCs ist aber in Planung.</p>
+    </details>
+    <details style="margin-bottom: 10px; cursor: pointer;">
+        <summary style="color: var(--gold); font-weight: bold;">Ist der Alpha-Test kostenlos?</summary>
+        <p>Ja, der Zugang für ausgewählte Tester über Discord oder die Website ist komplett kostenlos.</p>
+    </details>
+</section>
+
+    <section>
+        <h2>DEVELOPMENT LOG</h2>
+        <div class="update-entry">
+            <div class="date">04. FEBRUAR 2026</div>
+            <h3>Projektstart</h3>
+            <p>Die Entwicklung von Eremondo hat offiziell begonnen.</p>
+        </div>
+    </section>
+
+   
+<section id="roadmap" class="fade-in">
+    <hr>
+    <h2>PROJEKT-ROADMAP 2026</h2>
+    <div class="roadmap-container">
+        <div class="roadmap-item">
+            <div class="roadmap-icon">🗺️</div>
+            <div class="roadmap-content">
+                <h3>World Building</h3>
+                <p>Erstellung der Weltkarte und Gestaltung der ersten Biome.</p>
+            </div>
+        </div>
+        
+        <div class="roadmap-item">
+            <div class="roadmap-icon">✨</div>
+            <div class="roadmap-content">
+                <h3>Next-Gen Visuals</h3>
+                <p>Implementierung von grafischen Details und Raytracing-Support für maximale Atmosphäre.</p>
+            </div>
+        </div>
+
+        <div class="roadmap-item">
+            <div class="roadmap-icon">⚔️</div>
+            <div class="roadmap-content">
+                <h3>Life in the Realms</h3>
+                <p>Einführung der ersten Entities und KI-Systeme.</p>
+            </div>
+        </div>
+
+        <div class="roadmap-item current">
+            <div class="roadmap-icon">🏘️</div>
+            <div class="roadmap-content">
+                <h3>The First Outpost</h3>
+                <p>Ein kleiner, spielbarer Bereich: Das erste Dorf und ein Stück Wald für Alpha-Tester.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+ <section id="discord-join" class="fade-in">
+    <hr>
+    <h2>JOIN THE REALMS</h2>
+    <p style="color: var(--text-dim);">Tausche dich mit anderen aus und gestalte die Welt von Eremondo mit.</p>
+    
+    <a href="https://discord.gg/jjDeJe3DW7" target="_blank" class="discord-btn">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Discord" style="width: 20px; vertical-align: middle; margin-right: 10px; filter: invert(1);">
+        AUF DISCORD BEITRETEN
+    </a>
+</section>
+
+   <section id="contact" style="margin-top: 60px;">
+        <h2>BECOME A TESTER</h2>
+        <p style="color: var(--text-dim); font-family: sans-serif;">
+            Es gibt aktuell noch keine spielbare Version. Melde dich hier an, um eine Nachricht zu erhalten, 
+            sobald wir die ersten **Alpha-Tester** für die Deep Realms suchen.
+        </p>
+        
+        <form action="https://formspree.io/f/mlglqzey" method="POST">
+            <input type="email" name="email" placeholder="Deine E-Mail Adresse" required>
+            
+            <input type="hidden" name="_subject" value="Neue Anmeldung für Alpha-Test">
+
+            <textarea name="message" rows="3" placeholder="Warum möchtest du testen? (optional)"></textarea>
+            
+            <div style="display: flex; align-items: flex-start; gap: 10px; margin: 10px 0;">
+                <input type="checkbox" id="privacy" name="privacy_accepted" required style="width: auto; margin-top: 5px;">
+                <label for="privacy" style="font-size: 0.75rem; color: var(--text-dim); font-family: sans-serif;">
+                    Ich habe die <a href="datenschutz.html" target="_blank" style="color: var(--gold);">Datenschutzerklärung</a> gelesen und möchte über den ersten Testlauf informiert werden.
+                </label>
+            </div>
+            
+            <button type="submit">FÜR TESTPHASE VORMERKEN</button>
+        </form>
+    </section>
+
+</div>
+
+<footer>
+    &copy; 2026 EREMONDO TEAM | CHRONICLES OF THE DEEP REALM. All rights reserved.<hr>
+    Eremondo is a project by Johannes Pingold and Dominik Schrödel. All game content, graphics, and story are intellectual property of the creators.
+    <p>
+    <a href="impressum.html" style="color: #c5a059; text-decoration: none;">Impressum</a> | 
+    <a href="datenschutz.html" style="color: #c5a059; text-decoration: none;">Datenschutz</a>
+</p>
+</footer>
+<button id="backToTop" title="Zurück zum Licht">↑</button>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // 1. Fade-In Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section, .update-entry, form').forEach(el => {
+            el.classList.add('fade-in');
+            observer.observe(el);
+        });
+
+        // 2. Formular-Logik
+        const form = document.querySelector('form');
+        if(form) {
+            form.onsubmit = async (e) => {
+                e.preventDefault();
+                const button = form.querySelector('button');
+                const data = new FormData(form);
+                button.disabled = true;
+                button.innerText = "ÜBERMITTLE...";
+                try {
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: data,
+                        headers: { 'Accept': 'application/json' }
+                    });
+                    if (response.ok) {
+                        form.innerHTML = `<div style="text-align: center; padding: 20px;"><h3 style="color: var(--gold);">ERFOLGREICH REGISTRIERT!</h3><p>Willkommen in den Deep Realms. Du wirst von uns hören.</p></div>`;
+                    } else { throw new Error(); }
+                } catch (error) {
+                    alert("Ein Fehler ist aufgetreten.");
+                    button.disabled = false;
+                    button.innerText = "ERNEUT VERSUCHEN";
+                }
+            };
+        }
+
+        // 3. Back to Top Logik
+        const backToTopBtn = document.getElementById("backToTop");
+        window.onscroll = function() {
+            if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+                backToTopBtn.classList.add("show");
+            } else {
+                backToTopBtn.classList.remove("show");
+            }
+        };
+        backToTopBtn.onclick = function() {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        };
+
+        // 4. Lore Snippets
+        const loreQuotes = [
+            "„Die Schatten im Dorf haben Augen...“",
+            "„Vertraue niemals dem Flüstern aus dem tiefen Wald.“",
+            "„Das Licht ist in den Deep Realms deine einzige Währung.“",
+            "„Manche Ruinen sollten besser unberührt bleiben.“",
+            "„Eremondo vergisst niemanden, der einmal dort war.“"
+        ];
+        const display = document.getElementById('lore-display');
+        if(display) {
+            display.innerText = loreQuotes[Math.floor(Math.random() * loreQuotes.length)];
+        }
+
+        // 5. Audio & Theme Logic
+        const themeToggle = document.getElementById('theme-toggle');
+        const musicToggle = document.getElementById('music-toggle');
+        const darkMusic = document.getElementById('bg-music-dark');
+        const lightMusic = document.getElementById('bg-music-light');
+        const fireSfx = document.getElementById('fire-sfx');
+        const body = document.body;
+        let isMuted = true;
+
+        function updateMusic() {
+            if (isMuted) return;
+            if (body.classList.contains('light-mode')) {
+                darkMusic.pause();
+                lightMusic.play().catch(() => {}); // Catch verhindert Fehler wenn Browser blockiert
+            } else {
+                lightMusic.pause();
+                darkMusic.play().catch(() => {});
+            }
+        }
+
+        // Theme Switcher FIX
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('light-mode'); // DIESE ZEILE HAT GEFEHLT
+            
+            if (body.classList.contains('light-mode')) {
+                themeToggle.innerText = "🌑";
+                themeToggle.title = "In die Schatten zurückkehren";
+            } else {
+                themeToggle.innerText = "☀️";
+                themeToggle.title = "Licht herbeirufen";
+            }
+            updateMusic();
+        });
+
+        // Musik Toggle
+        musicToggle.addEventListener('click', () => {
+            isMuted = !isMuted;
+            if (!isMuted) {
+                musicToggle.innerText = "🔊";
+                musicToggle.classList.add('music-active');
+                updateMusic();
+            } else {
+                musicToggle.innerText = "🔇";
+                musicToggle.classList.remove('music-active');
+                darkMusic.pause();
+                lightMusic.pause();
+            }
+        });
+
+        // Feuersound bei Klick
+        document.querySelectorAll('button, .discord-btn, .nav-links a').forEach(element => {
+            element.addEventListener('click', () => {
+                if(fireSfx) {
+                    fireSfx.currentTime = 0;
+                    fireSfx.play().catch(() => {});
+                }
+            });
+        });
+    });
+
+    // Fackel-Effekt (Außerhalb von DOMContentLoaded für bessere Performance)
+    const flare = document.createElement('div');
+    flare.style.cssText = `position: fixed; width: 300px; height: 300px; background: radial-gradient(circle, rgba(197,160,89,0.15) 0%, rgba(0,0,0,0) 70%); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); transition: opacity 0.3s;`;
+    document.body.appendChild(flare);
+    document.addEventListener('mousemove', (e) => {
+        flare.style.left = e.clientX + 'px';
+        flare.style.top = e.clientY + 'px';
+    });
+</script>
+</body>
+</html>
