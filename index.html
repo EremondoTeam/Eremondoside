@@ -10,6 +10,33 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        /* 1. Den Standard-Look von Links weltweit auf deiner Seite entfernen */
+a {
+    text-decoration: none !important; /* Entfernt den Unterstrich */
+    color: inherit; /* Verhindert, dass der Browser die Farbe auf lila/blau erzwingt */
+}
+
+/* 2. Spezifisches Styling für die Navbar-Schrift */
+.nav-links a {
+    color: var(--gold) !important; /* Erzwingt dein Gold */
+    text-decoration: none;
+    font-family: 'Cinzel', serif; /* Mystischer Look */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+/* 3. Hover-Effekt (damit man sieht, dass es ein Link ist) */
+.nav-links a:hover {
+    color: #fff !important; /* Schrift wird beim Drüberfahren weiß */
+    text-shadow: 0 0 10px var(--gold); /* Sanftes goldenes Glühen */
+}
+
+/* 4. Besuchte Links (verhindert das Lila nach dem Klicken) */
+.nav-links a:visited {
+    color: var(--gold) !important;
+}
         :root {
             --gold: #c5a059;
             --gold-bright: #e0b86a;
@@ -179,6 +206,12 @@
         width: 100%;
     }
 }
+/* Discord Glow */
+.social-links-nav a[title="Discord"]:hover {
+    color: #5865F2; /* Original Discord Blurple */
+    filter: drop-shadow(0 0 8px rgba(88, 101, 242, 0.8));
+    transform: translateY(-2px);
+}
     </style>
 </head>
 <body>
@@ -197,12 +230,12 @@
     
     <div class="menu-toggle" id="mobile-menu">☰</div>
 
-    <div class="nav-links" id="nav-content">
-        <div class="social-links-nav" style="display: flex; gap: 15px; margin-right: 15px; border-right: 1px solid rgba(197, 160, 89, 0.3); padding-right: 15px;">
-            <a href="https://youtube.com/@eremondoofficial" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
-            <a href="https://instagram.com/eremondoofficial" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://tiktok.com/@eremondoofficial" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
-        </div>
+    <div class="social-links-nav" style="display: flex; gap: 15px; margin-right: 15px; border-right: 1px solid rgba(197, 160, 89, 0.3); padding-right: 15px;">
+    <a href="https://youtube.com/@eremondoofficial" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+    <a href="https://instagram.com/eremondo_official" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://tiktok.com/@eremondoofficial" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+    <a href="https://discord.gg/3h5BAyJ6fX" target="_blank" title="Discord"><i class="fab fa-discord"></i></a>
+</div>
         
         <a href="#story">STORY</a>
         <a href="#classes">CLASSES</a>
