@@ -726,12 +726,16 @@ body.light-mode .theme-btn:hover {
         });
 
         // 2. Formular-Logik
-        const form = document.querySelector('form');
-        if(form) {
-            form.onsubmit = async (e) => {
-            };
-        }
-
+     // 2. Formular-Logik
+const form = document.querySelector('form');
+if(form) {
+    form.onsubmit = () => {
+        const button = form.querySelector('button');
+        button.disabled = true; // Verhindert Doppelklicks
+        button.innerText = "Sende Rabe...";
+        // Kein e.preventDefault()! So wird das POST normal ausgeführt.
+    };
+}
         // 3. Back to Top Logik
         const backToTopBtn = document.getElementById("backToTop");
         window.onscroll = function() {
