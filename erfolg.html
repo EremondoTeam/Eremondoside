@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DER RUF WURDE GEHÖRT | EREMONDO</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --gold: #c5a059; --deep-bg: #0d0f12; }
+        
+        body { 
+            background-color: var(--deep-bg); 
+            color: #f4f4f4; 
+            font-family: 'Cinzel', serif; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            margin: 0; 
+            text-align: center;
+            overflow: hidden;
+        }
+
+        /* Feuer-Partikel Hintergrund */
+        #fire-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at bottom, rgba(197, 160, 89, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .message-box {
+            position: relative;
+            z-index: 2;
+            padding: 50px;
+            border: 1px solid var(--gold);
+            background: rgba(13, 15, 18, 0.95);
+            box-shadow: 0 0 50px rgba(197, 160, 89, 0.15);
+            max-width: 600px;
+            backdrop-filter: blur(10px);
+        }
+
+        h1 { color: var(--gold); letter-spacing: 4px; margin-bottom: 20px; text-shadow: 0 0 15px rgba(197, 160, 89, 0.5); }
+        p { color: #ccc; line-height: 1.8; font-size: 1.1rem; }
+        
+        .countdown-text {
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: var(--gold);
+            letter-spacing: 2px;
+            opacity: 0.7;
+        }
+
+        #timer { font-weight: bold; font-size: 1.2rem; }
+
+        .fire-ember {
+            position: absolute;
+            background: var(--gold);
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0.6;
+            filter: blur(1px);
+            animation: rise 4s infinite linear;
+        }
+
+        @keyframes rise {
+            0% { transform: translateY(0) scale(1); opacity: 0.6; }
+            100% { transform: translateY(-100vh) scale(0.2); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="fire-bg"></div>
+
+    <div class="message-box">
+        <h1>DER RUF WURDE GEHÖRT</h1>
+        <p>Deine Seele wurde in den Archiven von Eremondo vorgemerkt.</p>
+        <p style="color: var(--gold); font-weight: bold;">Prüfe jetzt dein Postfach! Ohne Bestätigung bleibt dein Pfad in der Dunkelheit verborgen.</p>
+        
+        <div class="countdown-text">
+            Kehre zurück zur Oberfläche in <span id="timer">10</span>...
+        </div>
+    </div>
+
+    <script>
+        // 1. Countdown Logik
+        let timeLeft = 10;
+        const timerElement = document.getElementById('timer');
+
+        const countdown = setInterval(() => {
+            timeLeft--;
+            timerElement.innerText = timeLeft;
+            if (timeLeft <= 0) {
+                clearInterval(countdown);
+                window.location.href = "index.html"; // Hier Pfad zu deiner Startseite prüfen
+            }
+        }, 1000);
+
+        // 2. Feuer-Effekt (Partikel)
+        function createEmber() {
+            const ember = document.createElement('div');
+            ember.classList.add('fire-ember');
+            
+            const size = Math.random() * 4 + 2 + 'px';
+            ember.style.width = size;
+            ember.style.height = size;
+            
+            ember.style.left = Math.random() * 100 + 'vw';
+            ember.style.bottom = '-10px';
+            ember.style.animationDuration = Math.random() * 3 + 2 + 's';
+            ember.style.opacity = Math.random();
+
+            document.body.appendChild(ember);
+
+            setTimeout(() => {
+                ember.remove();
+            }, 5000);
+        }
+
+        setInterval(createEmber, 150);
+    </script>
+</body>
+</html>

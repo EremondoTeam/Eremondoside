@@ -596,18 +596,7 @@ body.light-mode .theme-btn:hover {
     <div id="countdown" style="font-family: monospace; font-size: 1.5rem; letter-spacing: 5px;">NO DATE YET</div>
 </section>
 
-<section id="faq" class="fade-in">
-    <hr>
-    <h2>HÄUFIGE FRAGEN</h2>
-    <details style="margin-bottom: 10px; cursor: pointer;">
-        <summary style="color: var(--gold); font-weight: bold;">Was sind die Systemanforderungen?</summary>
-        <p>Da wir Raytracing nutzen, wird eine moderne Grafikkarte empfohlen. Eine Version für schwächere PCs ist aber in Planung.</p>
-    </details>
-    <details style="margin-bottom: 10px; cursor: pointer;">
-        <summary style="color: var(--gold); font-weight: bold;">Ist der Alpha-Test kostenlos?</summary>
-        <p>Ja, der Zugang für ausgewählte Tester über Discord oder die Website ist komplett kostenlos.</p>
-    </details>
-</section>
+
 
     <section>
         <h2>DEVELOPMENT LOG</h2>
@@ -668,40 +657,58 @@ body.light-mode .theme-btn:hover {
     </a>
 </section>
 
-   <section id="contact" style="margin-top: 60px;">
-        <h2>BECOME A TESTER</h2>
-        <p style="color: var(--text-dim); font-family: sans-serif;">
-            Es gibt aktuell noch keine spielbare Version. Melde dich hier an, um eine Nachricht zu erhalten, 
-            sobald wir die ersten **Alpha-Tester** für die Deep Realms suchen.
-        </p>
+  <section id="contact" style="margin-top: 60px;">
+    <h2>BECOME A TESTER</h2>
+    <p style="color: var(--text-dim); font-family: sans-serif;">
+        Es gibt aktuell noch keine spielbare Version. Melde dich hier an, um eine Nachricht zu erhalten, 
+        sobald wir die ersten **Alpha-Tester** für die Deep Realms suchen.
+    </p>
+    
+    <form action="https://formsubmit.co/eremondoofficial@gmail.com" method="POST">
         
-        <form action="https://formspree.io/f/mlglqzey" method="POST">
-            <input type="email" name="email" placeholder="Deine E-Mail Adresse" required>
-            
-            <input type="hidden" name="_subject" value="Neue Anmeldung für Alpha-Test">
+        <input type="hidden" name="_confirmation" value="Ein Rabe wurde ausgesandt! Bitte bestätige deine E-Mail in deinem Postfach, um dich für die Alpha zu verifizieren.">
+        
+        <input type="hidden" name="_next" value="erfolg.html">
+        
+        <input type="hidden" name="_captcha" value="false">
+        <input type="text" name="_honey" style="display:none">
 
-            <textarea name="message" rows="3" placeholder="Warum möchtest du testen? (optional)"></textarea>
-            
-            <div style="display: flex; align-items: flex-start; gap: 10px; margin: 10px 0;">
-                <input type="checkbox" id="privacy" name="privacy_accepted" required style="width: auto; margin-top: 5px;">
-                <label for="privacy" style="font-size: 0.75rem; color: var(--text-dim); font-family: sans-serif;">
-                    Ich habe die <a href="datenschutz.html" target="_blank" style="color: var(--gold);">Datenschutzerklärung</a> gelesen und möchte über den ersten Testlauf informiert werden.
-                </label>
-            </div>
-            
-            <button type="submit">FÜR TESTPHASE VORMERKEN</button>
-        </form>
+        <input type="email" name="email" placeholder="Deine E-Mail Adresse" required>
+        
+        <textarea name="message" rows="3" placeholder="Warum möchtest du testen? (optional)"></textarea>
+        
+        <div style="margin-bottom: 20px; text-align: left; font-size: 0.85rem;">
+            <label style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer;">
+                <input type="checkbox" required style="margin-top: 4px; accent-color: var(--gold);">
+                <span>Ich akzeptiere die <a href="eula.html" target="_blank" style="color: var(--gold);">EULA</a> sowie die <a href="datenschutz.html" target="_blank" style="color: var(--gold);">Datenschutzerklärung</a> von EREMONDO.</span>
+            </label>
+        </div>
+        
+        <button type="submit">FÜR TESTPHASE VORMERKEN</button>
+    </form>
+</section>
+
+    <section id="faq" class="fade-in">
+        <hr>
+        <h2>HÄUFIGE FRAGEN</h2>
+        <details style="margin-bottom: 10px; cursor: pointer;">
+            <summary style="color: var(--gold); font-weight: bold;">Was sind die Systemanforderungen?</summary>
+            <p>Da wir Raytracing nutzen, wird eine moderne Grafikkarte empfohlen. Eine Version für schwächere PCs ist aber in Planung.</p>
+        </details>
+        <details style="margin-bottom: 10px; cursor: pointer;">
+            <summary style="color: var(--gold); font-weight: bold;">Ist der Alpha-Test kostenlos?</summary>
+            <p>Ja, der Zugang für ausgewählte Tester über Discord oder die Website ist komplett kostenlos.</p>
+        </details>
     </section>
-
 </div>
 
-<footer>
-    &copy; 2026 EREMONDO TEAM | CHRONICLES OF THE DEEP REALM. All rights reserved.<hr>
-    Eremondo is a project by Johannes Pingold and Dominik Schrödel. All game content, graphics, and story are intellectual property of the creators.
-    <p>
-    <a href="impressum.html" style="color: #c5a059; text-decoration: none;">Impressum</a> | 
-    <a href="datenschutz.html" style="color: #c5a059; text-decoration: none;">Datenschutz</a>
-</p>
+<footer style="padding: 40px 0; text-align: center; border-top: 1px solid rgba(197, 160, 89, 0.2);">
+    <p>&copy; 2026 EREMONDO TEAM. All rights reserved.</p>
+    <div style="margin-top: 10px;">
+        <a href="impressum.html" style="color: #888; text-decoration: none; margin: 0 10px;">Impressum</a>
+        <a href="datenschutz.html" style="color: #888; text-decoration: none; margin: 0 10px;">Datenschutz</a>
+        <a href="eula.html" style="color: #888; text-decoration: none; margin: 0 10px;">EULA</a>
+    </div>
 </footer>
 <button id="backToTop" title="Zurück zum Licht">↑</button>
 <script>
@@ -722,25 +729,6 @@ body.light-mode .theme-btn:hover {
         const form = document.querySelector('form');
         if(form) {
             form.onsubmit = async (e) => {
-                e.preventDefault();
-                const button = form.querySelector('button');
-                const data = new FormData(form);
-                button.disabled = true;
-                button.innerText = "ÜBERMITTLE...";
-                try {
-                    const response = await fetch(form.action, {
-                        method: 'POST',
-                        body: data,
-                        headers: { 'Accept': 'application/json' }
-                    });
-                    if (response.ok) {
-                        form.innerHTML = `<div style="text-align: center; padding: 20px;"><h3 style="color: var(--gold);">ERFOLGREICH REGISTRIERT!</h3><p>Willkommen in den Deep Realms. Du wirst von uns hören.</p></div>`;
-                    } else { throw new Error(); }
-                } catch (error) {
-                    alert("Ein Fehler ist aufgetreten.");
-                    button.disabled = false;
-                    button.innerText = "ERNEUT VERSUCHEN";
-                }
             };
         }
 
