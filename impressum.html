@@ -5,20 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Impressum | EREMONDO</title>
     <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
     <style>
         :root {
             --gold: #c5a059;
             --deep-bg: #0d0f12;
-            --text-dim: #a0a0a0;
-            --white: #ffffff;
+            --card-bg: #1a1d22;
+            --text-light: #f4f4f4;
         }
 
         body {
             margin: 0;
             padding: 0;
             background-color: var(--deep-bg);
-            color: var(--white);
-            font-family: sans-serif;
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -27,20 +28,27 @@
 
         .container {
             max-width: 600px;
+            width: 90%;
             padding: 40px;
-            border-left: 2px solid var(--gold);
-            background: rgba(255, 255, 255, 0.02);
+            background: var(--card-bg);
+            border-left: 3px solid var(--gold);
+            border-top: 1px solid rgba(197, 160, 89, 0.1);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
         }
 
         h1 {
+            font-family: 'Cinzel', serif;
             color: var(--gold);
             text-transform: uppercase;
             letter-spacing: 3px;
             margin-bottom: 30px;
             font-size: 1.8rem;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+            padding-bottom: 10px;
         }
 
         h2 {
+            font-family: 'Cinzel', serif;
             color: var(--gold);
             font-size: 0.9rem;
             text-transform: uppercase;
@@ -51,8 +59,9 @@
 
         p {
             line-height: 1.6;
-            color: var(--white);
+            color: #ccc;
             margin: 5px 0;
+            font-size: 0.95rem;
         }
 
         .back-link {
@@ -60,13 +69,15 @@
             margin-top: 40px;
             color: var(--gold);
             text-decoration: none;
+            font-family: 'Cinzel', serif;
             font-size: 0.8rem;
             letter-spacing: 1px;
-            transition: opacity 0.3s;
+            transition: all 0.3s;
         }
 
         .back-link:hover {
             opacity: 0.7;
+            transform: translateX(-5px);
         }
     </style>
 </head>
@@ -75,20 +86,23 @@
     <div class="container">
         <h1>Impressum</h1>
 
-        <h2>Angaben gemäß § 5 TMG:</h2>
+        <h2>Angaben gemäß § 5 TMG</h2>
         <p>Johannes Pingold</p>
         <p>c/o Susanne Pingold</p>
         <p>Lilling 4</p>
         <p>91322 Gräfenberg</p>
         <p>Deutschland</p>
 
-        <h2>Kontakt:</h2>
+        <h2>Kontakt</h2>
         <p>E-Mail: eremondoofficial@gmail.com</p>
 
-        <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV:</h2>
+        <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
         <p>Johannes Pingold</p>
         <p>Lilling 4</p>
         <p>91322 Gräfenberg</p>
+
+        <h2>Haftungshinweis</h2>
+        <p style="font-size: 0.8rem; color: #888;">Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.</p>
 
         <a href="index.html" class="back-link">← ZURÜCK ZU EREMONDO</a>
     </div>

@@ -4,22 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EULA | EREMONDO</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             --gold: #c5a059;
+            --gold-bright: #e0b86a;
             --deep-bg: #0d0f12;
             --card-bg: #16191d;
             --text-light: #f4f4f4;
             --text-dim: #a0a0a0;
         }
 
+        /* Goldene Scrollbar passend zum Projekt */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--deep-bg); }
+        ::-webkit-scrollbar-thumb { 
+            background: linear-gradient(to bottom, #8a6d3b, var(--gold), #8a6d3b); 
+            border-radius: 4px; 
+        }
+
         body {
             background-color: var(--deep-bg);
             color: var(--text-light);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
             margin: 0;
-            padding: 40px 20px;
+            padding: 60px 20px;
             display: flex;
             justify-content: center;
         }
@@ -28,69 +40,85 @@
             max-width: 850px;
             background: var(--card-bg);
             padding: 50px;
-            border: 1px solid rgba(197, 160, 89, 0.3);
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            border-left: 4px solid var(--gold); /* Akzent-Linie wie im Impressum */
+            box-shadow: 0 15px 50px rgba(0,0,0,0.6);
         }
 
         .back-link {
             display: inline-block;
             color: var(--gold);
             text-decoration: none;
+            font-family: 'Cinzel', serif;
             font-weight: bold;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: 0.3s;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+            transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         .back-link:hover {
-            letter-spacing: 2px;
-            text-shadow: 0 0 8px var(--gold);
+            color: var(--gold-bright);
+            transform: translateX(-5px);
+            text-shadow: 0 0 10px rgba(197, 160, 89, 0.5);
         }
 
         h1 {
+            font-family: 'Cinzel', serif;
             color: var(--gold);
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
             border-bottom: 1px solid rgba(197, 160, 89, 0.2);
-            padding-bottom: 15px;
+            padding-bottom: 20px;
             margin-bottom: 30px;
+            font-size: 1.8rem;
         }
 
         h2 {
+            font-family: 'Cinzel', serif;
             color: var(--gold);
-            font-size: 1.3rem;
-            margin-top: 35px;
+            font-size: 1.1rem;
+            margin-top: 40px;
             text-transform: uppercase;
+            letter-spacing: 1.5px;
         }
 
         p, li {
             color: var(--text-dim);
-            font-size: 1rem;
+            font-size: 0.95rem;
+        }
+
+        strong {
+            color: var(--text-light);
+            font-weight: 600;
         }
 
         ul {
             padding-left: 20px;
+            list-style-type: square;
         }
 
         li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .footer-note {
-            margin-top: 50px;
-            padding-top: 20px;
+            margin-top: 60px;
+            padding-top: 25px;
             border-top: 1px solid rgba(197, 160, 89, 0.1);
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             text-align: center;
-            font-style: italic;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 1px;
+            color: var(--gold);
         }
 
-        /* Scrollbar Styling für Dark Mode */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0d0f12; }
-        ::-webkit-scrollbar-thumb { background: #c5a059; border-radius: 4px; }
+        /* Responsive Anpassung */
+        @media (max-width: 600px) {
+            .container { padding: 30px 20px; }
+            h1 { font-size: 1.4rem; }
+        }
     </style>
 </head>
 <body>
@@ -100,47 +128,41 @@
     
     <h1>Endbenutzer-Lizenzvereinbarung (EULA)</h1>
     <p><strong>Projekt:</strong> EREMONDO – Chronicles of the Deep Realm<br>
-    <strong>Stand:</strong> Februar 2026</p>
+    <strong>Version:</strong> Alpha-Phase 2026</p>
+
+    <p>Diese Vereinbarung ist ein rechtsgültiger Vertrag zwischen Ihnen (dem Nutzer) und dem EREMONDO-Entwicklerteam (Johannes Pingold & Dominik Schrödel). Durch den Zugriff auf die Alpha-Software erklären Sie sich mit den folgenden Bedingungen einverstanden.</p>
 
     <h2>1. Umfang der Lizenz</h2>
-    <p>Diese Lizenzvereinbarung („Vereinbarung“) ist ein rechtsgültiger Vertrag zwischen Ihnen („Endnutzer“) und dem EREMONDO-Entwicklerteam (Johannes Pingold & Dominik Schrödel) („Lizenzgeber“). Diese Vereinbarung definiert die Bedingungen, unter denen Ihnen der Download, die Installation und die Nutzung der Software „EREMONDO“ sowie zugehöriger Dienste gestattet ist.</p>
     <ul>
-        <li><strong>Annahme:</strong> Durch Nutzung der Software erklären Sie sich mit diesen Bedingungen einverstanden.</li>
-        <li><strong>Alpha-Status:</strong> Sie erkennen an, dass sich die Software in einer frühen Testphase befindet und Fehler enthalten kann.</li>
+        <li><strong>Alpha-Status:</strong> EREMONDO befindet sich in einer frühen Entwicklungsphase. Abstürze, Bugs oder Datenverlust sind Teil des Testprozesses.</li>
+        <li><strong>Nutzungsrecht:</strong> Ihnen wird ein zeitlich begrenztes, widerrufbares Recht zur privaten Nutzung der Software gewährt.</li>
     </ul>
 
-    <h2>2. Lizenzgewährung</h2>
-    <p>Der Lizenzgeber gewährt Ihnen eine nicht-exklusive, nicht-übertragbare und begrenzte Lizenz zur persönlichen, nicht-kommerziellen Nutzung der Software auf Ihren privaten Geräten.</p>
-
-    <h2>3. Nutzungsbeschränkungen</h2>
-    <p>Es ist Ihnen untersagt:</p>
+    <h2>2. Nutzungsbeschränkungen</h2>
+    <p>Um die Integrität des Projekts zu wahren, ist Folgendes untersagt:</p>
     <ul>
-        <li>Die Software oder deren Code zu modifizieren, zu dekompilieren oder zu disassemblieren (Reverse Engineering).</li>
-        <li>Die Software zu vermieten, zu verkaufen oder ohne ausdrückliche Genehmigung an Dritte zu verbreiten.</li>
-        <li>Sicherheitsmaßnahmen oder Lizenzmanagement-Systeme zu umgehen.</li>
-        <li>Die Software für kommerzielle Zwecke oder zur Entwicklung von Konkurrenzprodukten zu nutzen.</li>
+        <li>Veränderung, Kopie oder Dekompilierung des Programmcodes.</li>
+        <li>Kommerzielle Nutzung oder Verkauf von In-Game-Inhalten.</li>
+        <li>Nutzung von Cheats, Exploits oder Drittanbieter-Software, die den Spielablauf manipuliert.</li>
     </ul>
 
-    <h2>4. Eigentumsrechte</h2>
-    <p>Sämtliche Rechte an der Software (Story, Grafik, Code, Marken) verbleiben beim Lizenzgeber. Die Software wird lizenziert, nicht verkauft.</p>
+    <h2>3. Eigentumsrechte</h2>
+    <p>Sämtliche Rechte an <strong>EREMONDO</strong> (Grafiken, Musik, Lore, Programmcode) liegen ausschließlich bei den oben genannten Entwicklern. Es findet kein Verkauf von geistigem Eigentum statt.</p>
 
-    <h2>5. Gewährleistungsausschluss</h2>
-    <p>Die Software wird „wie besehen“ (as is) bereitgestellt. Der Lizenzgeber übernimmt keine Garantie für Fehlerfreiheit oder die Eignung für einen bestimmten Zweck. Die Nutzung erfolgt auf eigene Gefahr.</p>
+    <h2>4. Haftungsausschluss</h2>
+    <p>Die Software wird ohne jegliche Gewährleistung bereitgestellt. Wir haften nicht für Schäden an Hardware oder Datenverlust, die durch die Nutzung der Vorabversion entstehen könnten.</p>
 
-    <h2>6. Haftungsbeschränkung</h2>
-    <p>Der Lizenzgeber haftet nicht für direkte oder indirekte Schäden (Datenverlust, Hardware-Probleme), die durch die Nutzung der Software entstehen, soweit dies gesetzlich zulässig ist.</p>
+    <h2>5. Alpha-Vertraulichkeit (NDA)</h2>
+    <p>Als Tester sind Sie Teil eines exklusiven Kreises. Wir bitten darum, <strong>unveröffentlichte Spielinhalte, Story-Spoiler oder technische Fehler</strong> nicht öffentlich zu verbreiten (z. B. auf YouTube/TikTok), sofern keine explizite "Content Creator"-Freigabe vorliegt. Feedback gehört primär in den internen Discord-Bereich.</p>
 
-    <h2>7. Alpha-Vertraulichkeit (NDA)</h2>
-    <p>Mit der Teilnahme an der Alpha-Phase verpflichten Sie sich, keine vertraulichen Spielinhalte oder unveröffentlichtes Material öffentlich zu teilen, sofern keine explizite Freigabe vorliegt.</p>
+    <h2>6. Datenschutz</h2>
+    <p>Informationen zur Datenverarbeitung während der Alpha-Phase finden Sie in unserer <a href="datenschutz.html" style="color: var(--gold);">Datenschutzerklärung</a>.</p>
 
-    <h2>8. Kündigung</h2>
-    <p>Diese Vereinbarung tritt bei Installation in Kraft. Sie endet sofort, wenn Sie gegen die Bedingungen verstoßen oder die Software vollständig von Ihren Geräten löschen.</p>
-
-    <h2>9. Anwendbares Recht</h2>
-    <p>Es gilt das Recht der Bundesrepublik Deutschland.</p>
+    <h2>7. Schlussbestimmungen</h2>
+    <p>Sollten einzelne Bestimmungen dieses Vertrages unwirksam sein, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt. Es gilt das Recht der Bundesrepublik Deutschland.</p>
 
     <div class="footer-note">
-        &copy; 2026 EREMONDO TEAM. Alle Rechte vorbehalten.
+        &copy; 2026 EREMONDO TEAM. PROCESSED BY THE AWAKENED.
     </div>
 </div>
 
