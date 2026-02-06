@@ -28,15 +28,23 @@
         h1 { font-family: 'Cinzel', serif; color: var(--gold); text-align: center; letter-spacing: 5px; margin-top: 0; }
         .mystic-text { font-style: italic; text-align: center; color: var(--gold); margin-bottom: 30px; opacity: 0.8; }
         
-        /* Das eingebettete Formular */
+        /* Das eingebettete Formular - Initial versteckt */
         .form-wrapper {
+            display: none; /* Versteckt */
             position: relative;
             width: 100%;
-            height: 80vh; /* Nutzt 80% der Bildschirmhöhe */
+            height: 80vh; 
             border: 1px solid rgba(197, 160, 89, 0.2);
-            background: #fff; /* Google Forms ist meist weiß, so wirkt der Übergang sauberer */
+            background: #fff; 
             border-radius: 2px;
             overflow: hidden;
+            margin-top: 20px;
+            animation: fadeIn 0.5s ease forwards;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
         iframe {
@@ -59,6 +67,14 @@
             transition: 0.3s ease;
         }
         .back-link:hover { text-shadow: 0 0 10px var(--gold); opacity: 0.8; }
+
+        /* Styling für die Box */
+        .privacy-box {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 4px;
+            border-left: 3px solid var(--gold);
+        }
     </style>
 </head>
 <body>
@@ -66,8 +82,21 @@
 <div class="scroll-container">
     <h1>DER ANTRAG</h1>
     <p class="mystic-text">"Hinterlasse deine Spuren, damit der Rat dich finden kann."</p>
+
+    <div class="privacy-box">
+        <label style="display: flex; gap: 10px; cursor: pointer; align-items: flex-start;">
+            <input type="checkbox" id="consent-checkbox" style="margin-top: 4px; accent-color: var(--gold);">
+            <span style="font-size: 0.9rem; line-height: 1.4;">
+                Ich akzeptiere die <strong>Datenschutzbestimmungen</strong>. 
+                Mir ist bewusst, dass mein Discord-Username ausschließlich zur Verifizierung und Zuweisung der "The Awakened"-Rolle auf dem offiziellen EREMONDO-Server gespeichert und verarbeitet wird.
+            </span>
+        </label>
+        <p style="margin-top: 10px; font-style: italic; font-size: 0.75rem; color: #888; margin-left: 25px;">
+            * Dein Username wird nicht an Dritte weitergegeben und nach Ende der Testphase gelöscht.
+        </p>
+    </div>
     
-    <div class="form-wrapper">
+    <div class="form-wrapper" id="alpha-form">
         <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd52MXY14wNTFL12P3hdPPFA6Xd6YNYtzChmtqOYag7hZn5Zw/viewform?embedded=true">Wird geladen…</iframe>
     </div>
 
@@ -79,10 +108,26 @@
 <audio id="fire-click" src="fire_click.mp3"></audio>
 
 <script>
-    // Spielt den Fire-Click beim ersten Klick auf der Seite ab
+    const checkbox = document.getElementById('consent-checkbox');
+    const formWrapper = document.getElementById('alpha-form');
+
+    // Überwachung der Checkbox
+    checkbox.addEventListener('change', function() {
+        if (this.checked) {
+            formWrapper.style.display = 'block';
+            // Scrollt automatisch zum Formular
+            setTimeout(() => {
+                formWrapper.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        } else {
+            formWrapper.style.display = 'none';
+        }
+    });
+
+    // Sound-Effekt
     document.addEventListener('click', function() {
         const snd = document.getElementById('fire-click');
-        if (snd.paused) {
+        if (snd && snd.paused) {
             snd.play().catch(() => {});
         }
     }, { once: true });
