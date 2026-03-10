@@ -223,7 +223,7 @@
             <button id="theme-toggle" class="theme-btn">☀️</button>
             <button id="music-toggle" class="theme-btn">🔇</button>
         </div>
-       
+        <a href="alpha.html" class="nav-special">ALPHA BEITRETEN</a>
     </div>
 </nav>
 
@@ -276,8 +276,8 @@
 </section>
 
     <section id="latest-update" style="text-align: center; padding: 40px; background: rgba(197, 160, 89, 0.05); border: 1px dashed var(--gold);">
-        <h3>Letztes Update: Pre-Alpha-v0.0.1</h3>
-        <p>Website and Discord Integration</p>
+        <h3>Letztes Update: Alpha-v0.0.1</h3>
+        <p>First Playable Scene Terrain made with Gaea</p>
         <a href="changelog.html" style="color: var(--gold); font-weight: bold; text-decoration: none;">Vollständiges Logbuch lesen →</a>
     </section>
 
@@ -295,20 +295,33 @@
         </div>
     </section>
 
-    <section id="gallery">
-    <h2>Einblicke</h2>
-    <div class="card" style="text-align: center; padding: 60px 20px; border: 1px dashed var(--gold); background: rgba(197, 160, 89, 0.02);">
-        <div style="font-size: 3rem; margin-bottom: 20px; opacity: 0.5;">🖼️</div>
-        <p style="font-style: italic; color: var(--text-dim); max-width: 500px; margin: auto;">
-            Im Moment gibt es noch kein Gameplay-Footage. Wir arbeiten unter Hochdruck an den ersten visuellen Prototypen.
-        </p>
-    </div>
-</section>
-</div>
+    <section id="gallery" style="padding: 40px 0;">
+        <h2 style="margin-bottom: 30px;">Einblicke</h2>
+
+        <div class="gallery-grid" style="
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+    ">
+            <div class="card" style="border: 1px solid var(--gold); background: rgba(197, 160, 89, 0.05); overflow: hidden; border-radius: 8px;">
+                <img src="bild1.png" alt="Gameplay Insight 1" style="width: 100%; height: 200px; object-fit: cover; display: block;">
+                <div style="padding: 15px;">
+                    <p style="margin: 0; font-size: 0.9rem; color: var(--text-dim); font-style: italic;">Die ersten Umgebungs-Entwürfe.</p>
+                </div>
+            </div>
+
+            <div class="card" style="border: 1px solid var(--gold); background: rgba(197, 160, 89, 0.05); overflow: hidden; border-radius: 8px;">
+                <img src="bild2.png" alt="Gameplay Insight 2" style="width: 100%; height: 200px; object-fit: cover; display: block;">
+                <div style="padding: 15px;">
+                    <p style="margin: 0; font-size: 0.9rem; color: var(--text-dim); font-style: italic;">Vogelansicht</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
 <footer>
     <p>&copy; 2026 EREMONDO TEAM</p>
-    <a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a>
+    <a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a> | <a href="eula.html">EULA</a>
 </footer>
 
 <button id="backToTop">↑</button>
@@ -402,5 +415,4 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 </body>
-
 </html>
