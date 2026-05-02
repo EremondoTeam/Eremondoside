@@ -200,7 +200,7 @@
 
 <nav class="navbar">
     <a href="index.html" class="nav-logo">
-        <span class="sword-icon">🗡️</span> EREMONDO
+        <span class="sword-icon"></span> EREMONDO
     </a>
     
     <div class="menu-toggle" id="mobile-menu">☰</div>
@@ -361,6 +361,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 2. FIRE CLICK
     const playClick = () => {
+        fireClick.volume = 0.5;
         fireClick.currentTime = 0;
         fireClick.play().catch(() => {});
     };
